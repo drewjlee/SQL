@@ -1,0 +1,9 @@
+SELECT
+Count(distinct cust.acctnum),
+avg(quantity*price)
+FROM BIT_DB.FebSales Feb
+LEFT JOIN BIT_DB.customers Cust
+ON Feb.orderid=cust.order_id
+WHERE Feb.Quantity>2
+AND length(orderid)=6
+AND orderID<> 'Order ID';
